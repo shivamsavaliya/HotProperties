@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
 </head>
 <body>
+
+<div class="login-container">
+    <div class="login-card">
+
+        <h2>Create Account</h2>
+        <p class="subtitle">Fill the details to register</p>
+
+        <div th:if="${param.error}" class="error">
+            Registration failed. Try again.
+        </div>
+
+        <form th:action="@{/register}" method="post">
+
+            <div class="input-group">
+                <label>First Name</label>
+                <input type="text" name="firstName" placeholder="Enter first name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Last Name</label>
+                <input type="text" name="lastName" placeholder="Enter last name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Register</button>
+
+            <p class="register-text">
+                Already have an account?
+                <a th:href="@{/login}">Log in here</a>
+            </p>
+
+        </form>
+
+    </div>
+</div>
 
 </body>
 </html>

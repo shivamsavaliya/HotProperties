@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Properties</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo-text">MyApp</div>
+    <a th:href="@{/dashboard}" class="header-btn">Dashboard</a>
+</div>
+
+<div class="main-content">
+    <div class="table-card">
+
+            <h2>Manage Properties</h2>
+
+            <div class="table-wrapper">
+                <table class="properties-table">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Location</th>
+                        <th>Size</th>
+                        <th>Images</th>
+                        <th>Favorites</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+<!--                    <tr th:each="property : ${properties}">-->
+<!--                        <td>-->
+<!--                            <div th:text="${property.title}">Beautiful House</div>-->
+<!--                        </td>-->
+<!--                        <td th:text="${'$' + property.price}">$1000</td>-->
+<!--                        <td th:text="${property.location}">Chicago, IL, 60618</td>-->
+<!--                        <td th:text="${property.size}">2300 sq ft</td>-->
+<!--                        <td>-->
+<!--                            <img th:src="${property.imageUrl}" alt="img" class="property-image" />-->
+<!--                        </td>-->
+<!--                        <td th:text="${property.favorites}">2</td>-->
+<!--                        <td>-->
+<!--                            <button class="actions-btn edit-btn" th:onclick="'location.href=\'/properties/edit/'+${property.id}+'\''">Edit</button>-->
+<!--                            <button class="actions-btn delete-btn" th:onclick="'location.href=\'/properties/delete/'+${property.id}+'\''">Delete</button>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+
+                        <tr>
+                            <td>Beautiful Family House</td>
+                            <td>$1200</td>
+                            <td>Chicago, IL, 60618</td>
+                            <td>2300 sq ft</td>
+                            <td><img src="" class="property-image" alt="img"></td>
+                            <td>3</td>
+                            <td>
+                                <a th:href="@{/agent/edit_property}" class="actions-btn edit-btn">Edit</a>
+                                <button class="actions-btn delete-btn">Delete</button>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>Modern Apartment</td>
+                            <td>$900</td>
+                            <td>New York, NY, 10001</td>
+                            <td>1200 sq ft</td>
+                            <td><img src="" class="property-image" alt="img"></td>
+                            <td>5</td>
+                            <td>
+                                <a th:href="@{/agent/edit_property}" class="actions-btn edit-btn">Edit</a>
+                                <button class="actions-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+    </div>
+</div>
+
+</body>
+</html>

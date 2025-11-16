@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Property</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+
+<div class="header">
+    <div class="logo-text">MyApp</div>
+    <a th:href="@{/dashboard}" class="header-btn">Dashboard</a>
+</div>
+
+<div class="main-content">
+
+    <div class="login-container">
+        <div class="login-card">
+
+            <h2>Edit Property</h2>
+
+            <form th:action="@{/agent/edit_property}" method="post" enctype="multipart/form-data">
+
+                <div class="input-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" th:value="${title}" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="price">Price ($)</label>
+                    <input type="number" id="price" name="price" th:value="${price}" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" th:value="${location}" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="size">Size (in sq ft)</label>
+                    <input type="number" id="size" name="size" th:value="${size}" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" required th:text="${description}"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="image">Add New Image</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                </div>
+
+                <div class="input-group">
+                    <label>Existing Images</label>
+                    <div th:each="img : ${images}" style="margin-bottom:10px; display:flex; align-items:center;">
+                        <img th:src="${url}" alt="img" style="width:60px; height:60px; object-fit:cover; border-radius:6px; margin-right:10px;">
+                        <button type="button" class="actions-btn delete-btn" th:onclick="'location.href=\'/properties/delete-image/'+${id}+'\''">Delete</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-login">Save Changes</button>
+                <br>
+                <br>
+                <a th:href="@{/dashboard}" class="dashboard-btn">Back to Dashboard</a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

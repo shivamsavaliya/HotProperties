@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-left">
+        <span class="logo-text">MyEstate</span>
+    </div>
+
+    <div class="header-right">
+        <a class="header-btn" th:href="@{/dashboard}">Dashboard</a>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="login-container">
+        <div class="login-card profile-card">
+
+            <h2>My Profile</h2>
+            <hr>
+
+            <p><strong>First Name:</strong> <span th:text="${firstName}"></span></p>
+            <p><strong>Last Name:</strong> <span th:text="${lastName}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${email}"></span></p>
+            <p><strong>Role:</strong> <span th:text="${role}"></span></p>
+
+            <br>
+            <form th:action="@{/profile/edit}" method="get">
+                <button type="submit" class="btn-login">Edit Profile</button>
+            </form>
+
+            <br>
+            <a th:href="@{/dashboard}" class="dashboard-btn" style="text-align:center;">Back to Dashboard</a>
+
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

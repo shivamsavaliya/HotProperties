@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div class="login-wrapper">
+<div class="login-container">
     <div class="login-card">
 
         <h2>Welcome Back</h2>
@@ -33,7 +33,13 @@
                 <input type="password" name="password" placeholder="Enter password" required>
             </div>
 
-            <button type="submit" class="btn-login">Login</button>
+            <button type="submit" class="btn-login" th:href="@{/dashboard}">Login</button>
+
+            <p class="register-text">
+                Don't have an account?
+                <a th:href="@{/register}">Register here</a>
+            </p>
+
         </form>
 
     </div>

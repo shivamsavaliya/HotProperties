@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo-text">MyApp</div>
+</div>
+
+<div class="main-content">
+    <div class="login-container">
+        <div class="login-card">
+
+            <h2>Welcome, <span th:text="${firstName} + ' ' + ${lastName}">Shivam Savaliya</span>!</h2>
+            <p class="subtitle">Your role: <strong th:text="${role}">Agent</strong></p>
+
+            <h3>Agent Dashboard</h3>
+            <div class="dashboard-links">
+                <a th:href="@{/profile}" class="dashboard-btn">My Profile</a>
+                <a th:href="@{/agent/manage_property}" class="dashboard-btn">Manage Listings</a>
+                <a th:href="@{/agent/new_property}" class="dashboard-btn">Add Property</a>
+                <a th:href="@{/messages}" class="dashboard-btn">View Messages</a>
+            </div>
+
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

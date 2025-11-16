@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo-text">MyApp</div>
+    <a th:href="@{/dashboard}" class="header-btn">Dashboard</a>
+</div>
+
+<div class="main-content">
+    <div class="login-container">
+        <div class="login-card">
+
+            <h2>Edit Profile</h2>
+
+            <form th:action="@{/profile/update}" method="post">
+
+                <div class="input-group">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" th:value="${firstName}" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" th:value="${lastName}" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" th:value="${email}" required>
+                </div>
+
+                <button type="submit" class="btn-login">Save Changes</button>
+            </form>
+
+            <br>
+            <a th:href="@{/profile}" class="dashboard-btn" style="text-align:center;">
+                Cancel
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
