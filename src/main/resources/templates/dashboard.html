@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hot Properties</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <h2>Dashboard</h2>
+        <p class="subtitle">Welcome to Hot Properties!</p>
+
+        <div class="input-group">
+            <p><strong>Email:</strong> <span th:text="${email}">user@example.com</span></p>
+            <p><strong>Role:</strong> <span th:text="${role}">BUYER</span></p>
+        </div>
+
+        <a th:href="@{/logout}" class="btn-login" style="text-decoration: none; text-align: center; display: block;">
+            Logout
+        </a>
+
+        <p class="subtitle" style="margin-top: 20px;">
+            This is a temporary dashboard. Role-specific dashboards will be implemented by your teammates.
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>
+
