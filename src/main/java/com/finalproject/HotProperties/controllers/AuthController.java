@@ -8,7 +8,6 @@ import com.finalproject.HotProperties.security.JwtUtils;
 import com.finalproject.HotProperties.security.UserDetailsImpl;
 import com.finalproject.HotProperties.services.UserService;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +16,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+    private final JwtUtils jwtUtils;
 
-    @Autowired
-    private JwtUtils jwtUtils;
+    public AuthController(UserService userService, JwtUtils jwtUtils) {
+        this.userService = userService;
+        this.jwtUtils = jwtUtils;
+    }
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody RegisterRequest registerRequest) {

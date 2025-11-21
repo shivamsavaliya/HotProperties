@@ -2,7 +2,6 @@ package com.finalproject.HotProperties.config;
 
 import com.finalproject.HotProperties.security.CustomUserDetailsService;
 import com.finalproject.HotProperties.security.JwtAuthenticationFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,11 +21,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    @Autowired
-    private CustomUserDetailsService userDetailsService;
+    private final CustomUserDetailsService userDetailsService;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    @Autowired
-    private JwtAuthenticationFilter jwtAuthenticationFilter;
+    public SecurityConfig(CustomUserDetailsService userDetailsService,
+                          JwtAuthenticationFilter jwtAuthenticationFilter) {
+        this.userDetailsService = userDetailsService;
+        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
