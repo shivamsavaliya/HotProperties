@@ -9,7 +9,6 @@ import com.finalproject.HotProperties.models.Role;
 import com.finalproject.HotProperties.models.User;
 import com.finalproject.HotProperties.repositories.UserRepository;
 import com.finalproject.HotProperties.security.UserDetailsImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,14 +20,17 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final AuthenticationManager authenticationManager;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    public UserService(UserRepository userRepository,
+                       PasswordEncoder passwordEncoder,
+                       AuthenticationManager authenticationManager) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
+    }
 
     @Transactional
     public User registerBuyer(RegisterRequest request) {
